@@ -29,7 +29,7 @@ Inspired by
 - [ ] Better way of doing git branches?
 
 ## Highlight Groups
-
+| Group                | Purpose*                       |
 | ---                  | ---                            |
 | MinLineMode          | Active Mode                    |
 | MinLineGitBranch     | Active Git branch              |
