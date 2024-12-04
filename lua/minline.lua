@@ -49,7 +49,7 @@ local function update_statusline()
     " ",
     "%#MinLineSecondaryText#",
     "%{%v:lua.require('minline').get_git_diff()%}",
-    "    ",
+    "   ",
     "%#MinLinePrimaryText#",
     "[%l:%c]",
     " ",
