@@ -28,8 +28,15 @@ function M.get_git_branch()
 end
 
 function M.get_filename()
-  local filename = vim.fn.fnamemodify(vim.fn.expand "%", ":~")
-  return filename ~= "" and filename or "<No file>"
+  local home_dir = vim.env.HOME
+  local file = vim.fn.expand "%t"
+  if file == "" then
+    return "<No file>"
+  end
+
+  local display_path = vim.fn.fnamemodify(vim.fn.expand "%", ":~")
+
+  return display_path:gsub(home_dir, "")
 end
 
 function M.get_git_diff()
@@ -37,7 +44,7 @@ function M.get_git_diff()
 end
 
 local function update_statusline()
-  vim.o.statusline = table.concat {
+  vim.wo.statusline = table.concat {
     "%#MinLineMode#",
     " [" .. M.get_mode() .. "]",
     "  ",
