@@ -14,6 +14,9 @@ Inspired by
 ```lua
 {
     "github.com/musaubrian/minline.nvim",
+    dependencies = {
+        "lewis6991/gitsigns.nvim",
+    }
     config = function()
         require("minline").setup()
     end
@@ -22,13 +25,18 @@ Inspired by
 ```
 
 ## Todo
-- [ ] show active lsp?
+~[ ] show active lsp?~
+~[ ] filetype~
+
+> Don't really need the lsp
+> Filetypes are on the name so no need as well
+
 - [x] filename
-- [ ] filetype
 - [x] Git branch
 - [ ] Better way of doing git branches?
 
 ## Highlight Groups
+
 | Group                | Purpose*                       |
 | ---                  | ---                            |
 | MinLineMode          | Active Mode                    |
