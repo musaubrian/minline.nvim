@@ -17,9 +17,7 @@ Inspired by
     dependencies = {
         "lewis6991/gitsigns.nvim",
     }
-    config = function()
-        require("minline").setup()
-    end
+    opts = {}
 }
 
 ```

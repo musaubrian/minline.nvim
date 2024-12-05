@@ -65,15 +65,7 @@ end
 function M.setup()
   local augroup = vim.api.nvim_create_augroup("MinLine", { clear = true })
 
-  -- Update on mode changes
-  vim.api.nvim_create_autocmd("ModeChanged", {
-    group = augroup,
-    pattern = "*:*",
-    callback = update_statusline,
-  })
-
-  -- Update on entering a buffer
-  vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+  vim.api.nvim_create_autocmd({ "ModeChanged", "BufEnter", "BufWinEnter" }, {
     group = augroup,
     pattern = "*",
     callback = update_statusline,
