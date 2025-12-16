@@ -44,22 +44,26 @@ function M.get_git_diff()
 end
 
 local function update_statusline()
-  vim.wo.statusline = table.concat {
-    "%#MinLineMode#",
-    " [" .. M.get_mode() .. "]",
-    "  ",
-    "%#MinLineGitBranch#",
-    "%{%v:lua.require('minline').get_git_branch()%}",
-    " ",
-    "%#MinLinePrimaryText#",
-    "%=" .. M.get_filename() .. "%=",
-    "%#MinLineSecondaryText#",
-    M.get_git_diff(),
-    "   ",
-    "%#MinLinePrimaryText#",
-    "[%l:%c]",
-    " ",
-  }
+  local win_config = vim.api.nvim_win_get_config(0)
+
+  if not win_config.relative or win_config.relative == "" then
+    vim.wo.statusline = table.concat {
+      "%#MinLineMode#",
+      " [" .. M.get_mode() .. "]",
+      "  ",
+      "%#MinLineGitBranch#",
+      "%{%v:lua.require('minline').get_git_branch()%}",
+      " ",
+      "%#MinLinePrimaryText#",
+      "%=" .. M.get_filename() .. "%=",
+      "%#MinLineSecondaryText#",
+      M.get_git_diff(),
+      "   ",
+      "%#MinLinePrimaryText#",
+      "[%l:%c]",
+      " ",
+    }
+  end
 end
 
 function M.setup()
