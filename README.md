@@ -5,8 +5,7 @@
 > This probably won't work on your machine
 
 Inspired by
-[mini.statusline](https://github.com/echasnovski/mini.statusline)
-
+[mini.statusline](https://github.com/nvim-mini/mini.statusline) |
 [el](https://github.com/tjdevries/express_line.nvim)
 
 ## usage:
