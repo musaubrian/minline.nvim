@@ -11,7 +11,6 @@ local MODES = {
   t = "T",
   ["!"] = "T",
 }
-local not_git_repo = "fatal: not a git repository"
 
 function M.get_mode()
   M.current_mode = MODES[vim.fn.mode()] or "?"
@@ -20,7 +19,7 @@ end
 
 function M.get_git_branch()
   local ok, branch = pcall(vim.fn.systemlist, "git branch --show-current")
-  if not ok or not branch[1] or branch[1]:match(not_git_repo) then
+  if not ok or not branch[1] or branch[1]:match "fatal:" then
     return ""
   end
 
